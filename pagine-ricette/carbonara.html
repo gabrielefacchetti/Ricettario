@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaghetti alla Carbonara</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fdf6e2; color: #333; padding: 20px; line-height: 1.6; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #d35400; text-align: center; }
+        h2 { color: #e67e22; border-bottom: 2px solid #fbeee6; padding-bottom: 5px; }
+        ul, ol { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .back { display: inline-block; margin-top: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🍝 Spaghetti alla Carbonara</h1>
+        
+        <h2>Ingredienti</h2>
+        <ul>
+            <li><strong>Spaghetti:</strong> 320g</li>
+            <li><strong>Guanciale:</strong> 150g</li>
+            <li><strong>Tuorli d'uovo:</strong> 4 grandi</li>
+            <li><strong>Pecorino Romano:</strong> 50g</li>
+            <li><strong>Pepe nero:</strong> q.b.</li>
+        </ul>
+
+        <h2>Preparazione</h2>
+        <ol>
+            <li>Taglia il guanciale a striscioline e rosolalo in padella a fuoco medio fino a renderlo croccante.</li>
+            <li>In una ciotola, sbatti i tuorli con il Pecorino Romano e un'abbondante macinata di pepe nero.</li>
+            <li>Cuoci gli spaghetti in acqua bollente leggermente salata.</li>
+            <li>Scola la pasta al dente, saltala in padella con il guanciale, poi sposta tutto nella ciotola con i tuorli (fuori dal fuoco) e mescola velocemente aggiungendo acqua di cottura se necessario.</li>
+        </ol>
+
+        <a id="back-link" href="../ricette.html" class="back">← Torna alle Ricette</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const originCat = params.get('from');
+        if (originCat) {
+            document.getElementById('back-link').href = `../ricette.html?cat=${originCat}`;
+        }
+    </script>
+</body>
+</html>

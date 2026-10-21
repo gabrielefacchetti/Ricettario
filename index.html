@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Ricettario PWA</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e67e22">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #fdf6e2; color: #333; margin: 0; padding: 20px; }
+        h1 { color: #d35400; }
+        .menu { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 30px auto; }
+        .btn { display: block; padding: 15px; background: #e67e22; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn:hover { background: #d35400; }
+    </style>
+</head>
+<body>
+
+    <h1>👨‍🍳 Il Mio Ricettario</h1>
+    <p>Seleziona una categoria per iniziare:</p>
+
+    <div class="menu">
+        <a href="ricette.html?cat=antipasti" class="btn">🍪 Antipasti</a>
+        <a href="ricette.html?cat=primi" class="btn">🍝 Primi</a>
+        <a href="ricette.html?cat=secondi" class="btn">🥩 Secondi</a>
+        <a href="ricette.html?cat=dolci" class="btn">🍰 Dolci</a>
+        <a href="ricette.html?cat=bibite" class="btn">🍹 Bibite</a>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('Service Worker Registrato!'))
+                .catch(err => console.log('Errore SW:', err));
+        }
+    </script>
+</body>
+</html>

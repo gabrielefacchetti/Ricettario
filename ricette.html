@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricette</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fdf6e2; color: #333; padding: 20px; text-align: center; }
+        h1 { color: #d35400; text-transform: capitalize; }
+        .lista { display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 20px auto; }
+        .item { padding: 15px; background: white; border: 1px solid #ddd; border-radius: 8px; text-decoration: none; color: #333; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .item:hover { background: #fbeee6; }
+        .back { display: inline-block; margin-top: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1 id="titolo-categoria">Caricamento...</h1>
+    <div class="lista" id="elenco-ricette"></div>
+
+    <a href="index.html" class="back">← Torna alle Categorie</a>
+
+    <script>
+        const database = {
+            antipasti: [{ file: "bruschetta.html", nome: "Bruschetta al Pomodoro" }],
+            primi: [{ file: "carbonara.html", nome: "Spaghetti alla Carbonara" }],
+            secondi: [{ file: "cotoletta.html", nome: "Cotoletta alla Milanese" }],
+            dolci: [{ file: "tiramisu.html", nome: "Tiramisù Classico" }],
+            bibite: [{ file: "mojito.html", nome: "Mojito Analcolico" }]
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const cat = params.get('cat');
+
+        if (cat && database[cat]) {
+            document.getElementById('titolo-categoria').innerText = cat;
+            const elenco = document.getElementById('elenco-ricette');
+            
+            database[cat].forEach(ricetta => {
+                const link = document.createElement('a');
+                link.href = `pagine-ricette/${ricetta.file}?from=${cat}`;
+                link.className = 'item';
+                link.innerText = ricetta.nome;
+                elenco.appendChild(link);
+            });
+        } else {
+            document.getElementById('titolo-categoria').innerText = "Categoria non trovata";
+        }
+    </script>
+</body>
+</html>
